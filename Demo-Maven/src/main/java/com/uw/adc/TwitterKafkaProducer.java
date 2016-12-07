@@ -72,11 +72,11 @@ public class TwitterKafkaProducer {
 
 	public static void main(String[] args) {
 		try {
-			String ConsumerKey = "eSyRGIYN6MsBbnsQEB9EBXGtT";
-			String ConsumerSecret = "IPJDpIpAzBvsBLpG8OXB3lwOIsOoX5lZhLNyCiJPD0ddbNHJc4";
+			String ConsumerKey = "";
+			String ConsumerSecret = "";
 
-			String AccessToken	= "2574272814-4sR9rjc6FBMMz1viWhFYVPlwsNgQ02dHxNqprOg";
-			String AccessTokenSecret = "p7qKxHT8Mnj5jjoUQ1TzlyNMmj49o3iyxyWQFIey33qI6";
+			String AccessToken	= "";
+			String AccessTokenSecret = "";
 			
 			TwitterKafkaProducer.run(ConsumerKey, ConsumerSecret , AccessToken, AccessTokenSecret);
 		} catch (InterruptedException e) {
