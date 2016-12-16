@@ -11,21 +11,20 @@ import java.util.List;
 public class TwitterHandler {
     public static ArrayList<String> getTweets(String twitterTrending, Twitter twitter) {
 
-        //Twitter twitter = new TwitterFactory().getInstance();
         ArrayList<String> tweetList = new ArrayList<String>();
         try {
             Query query = new Query(twitterTrending);
-            QueryResult result;
+            QueryResult queryResult;
             do {
-                result = twitter.search(query);
-                List<Status> tweets = result.getTweets();
+                queryResult = twitter.search(query);
+                List<Status> tweets = queryResult.getTweets();
                 for (Status tweet : tweets) {
                     tweetList.add(tweet.getText());
                 }
-            } while ((query = result.nextQuery()) != null);
-        } catch (TwitterException te) {
-            te.printStackTrace();
-            System.out.println("Failed to search tweets: " + te.getMessage());
+            } while ((query = queryResult.nextQuery()) != null);
+        } catch (TwitterException e) {
+            e.printStackTrace();
+
         }
         return tweetList;
     }

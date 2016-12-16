@@ -9,14 +9,9 @@ import twitter4j.conf.ConfigurationBuilder;
 import java.util.ArrayList;
 import java.util.Properties;
 
-/*
- * Created by Sonam Gupta 
- */
-
-
 public class TwitterKafkaProducer {
 
-	private static final String topic = "twitter-topic";
+	private static final String topic = "tweets";
 
 
 	public static void run(String consumerKey, String consumerSecret,
@@ -33,19 +28,19 @@ public class TwitterKafkaProducer {
 		kafka.javaapi.producer.Producer<String, String> producer = new kafka.javaapi.producer.Producer<String, String>(
 				producerConfig);
 
-		ConfigurationBuilder cb = new ConfigurationBuilder();
-		cb.setDebugEnabled(true).
+		ConfigurationBuilder configurationBuilder = new ConfigurationBuilder();
+		configurationBuilder.setDebugEnabled(true).
 				setOAuthConsumerKey(consumerKey).
 				setOAuthConsumerSecret(consumerSecret).
 				setOAuthAccessToken(token).
 				setOAuthAccessTokenSecret(secret);
-		TwitterFactory tf = new TwitterFactory(cb.build());
-		Twitter twitter = tf.getInstance();
+		TwitterFactory twitterFactory = new TwitterFactory(configurationBuilder.build());
+		Twitter twitter = twitterFactory.getInstance();
 		ArrayList<String> tweets = TwitterHandler.getTweets(twitterTrending, twitter);
 		KeyedMessage<String, String> message = null;
-		FindSentimentNLP.init();
+		FindSentiment.init();
 		for(String tweet : tweets) {
-			int sentiment = FindSentimentNLP.findSentiment(tweet);
+			int sentiment = FindSentiment.findSentiment(tweet);
 			String tweetWithSentiment = tweet + " : " + sentiment;
 			System.out.println(tweetWithSentiment);
 			switch (sentiment) {

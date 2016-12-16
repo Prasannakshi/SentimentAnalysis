@@ -11,28 +11,28 @@ import edu.stanford.nlp.util.CoreMap;
 /**
  * Created by Anurita on 12/6/2016.
  */
-public class FindSentimentNLP {
+public class FindSentiment {
     static StanfordCoreNLP pipeline;
 
     public static void init() {
-        pipeline = new StanfordCoreNLP("MyProp.properties");
+        pipeline = new StanfordCoreNLP("StanfordProp.properties");
     }
 
     public static int findSentiment(String tweet) {
 
         int mainSentiment = 0;
         if (tweet != null && tweet.length() > 0) {
-            int longest = 0;
+            int longestSentiment = 0;
             Annotation annotation = pipeline.process(tweet);
-            for (CoreMap sentence : annotation
+            for (CoreMap coreMap : annotation
                     .get(CoreAnnotations.SentencesAnnotation.class)) {
-                Tree tree = sentence
+                Tree tree = coreMap
                         .get(SentimentCoreAnnotations.SentimentAnnotatedTree.class);
                 int sentiment = RNNCoreAnnotations.getPredictedClass(tree);
-                String partText = sentence.toString();
-                if (partText.length() > longest) {
+                String partText = coreMap.toString();
+                if (partText.length() > longestSentiment) {
                     mainSentiment = sentiment;
-                    longest = partText.length();
+                    longestSentiment = partText.length();
                 }
 
             }
