@@ -5,9 +5,7 @@ import twitter4j.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Anurita on 12/6/2016.
- */
+
 public class TwitterHandler {
     public static ArrayList<String> getTweets(String twitterTrending, Twitter twitter) {
 
