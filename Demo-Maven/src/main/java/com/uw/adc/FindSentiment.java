@@ -8,9 +8,7 @@ import edu.stanford.nlp.sentiment.SentimentCoreAnnotations;
 import edu.stanford.nlp.trees.Tree;
 import edu.stanford.nlp.util.CoreMap;
 
-/**
- * Created by Anurita on 12/6/2016.
- */
+
 public class FindSentiment {
     static StanfordCoreNLP pipeline;
 
