@@ -44,13 +44,13 @@ public class TwitterKafkaProducer {
 			String tweetWithSentiment = tweet + " : " + sentiment;
 			System.out.println(tweetWithSentiment);
 			switch (sentiment) {
-				case 3:
+				case 2:
 					countNeutral++;
 					break;
 				case 1:
 					countNeg++;
 					break;
-				case 2:
+				case 3:
 					countPositive++;
 					break;
 				default:
