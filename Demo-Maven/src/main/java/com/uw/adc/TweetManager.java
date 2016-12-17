@@ -9,9 +9,7 @@ import twitter4j.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Anurita on 12/4/2016.
- */
+
 public class TweetManager {
     public static ArrayList<String> getTweets(String topic) {
         ConfigurationBuilder cb = new ConfigurationBuilder();
