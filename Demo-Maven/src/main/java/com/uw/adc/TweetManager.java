@@ -14,10 +14,10 @@ public class TweetManager {
     public static ArrayList<String> getTweets(String topic) {
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true)
-                .setOAuthConsumerKey("2jJqG3L8PRLNkFwfOFiN9GZ6o")
-                .setOAuthConsumerSecret("zWNJvcN29gOxTtQRHF2nYdqdpRbdksZAuckoovamfzqIvGQyQx")
-                .setOAuthAccessToken("805276824808763392kDanv3AYB7aVeqLzNXofQMmNXxZLHxV")
-                .setOAuthAccessTokenSecret("cYJdgFiDbIO8qRC6bMeMxva324UHUfICaKRBVo9RabE0S");
+                .setOAuthConsumerKey("")
+                .setOAuthConsumerSecret("")
+                .setOAuthAccessToken("")
+                .setOAuthAccessTokenSecret("");
         TwitterFactory twitterFactory = new TwitterFactory(cb.build());
         Twitter twitter = twitterFactory.getInstance();
 //        Twitter twitter = new TwitterFactory().getInstance();
